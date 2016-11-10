@@ -12,20 +12,29 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\cubic_interpolation.gml</script>
-    <script>scripts\cubic_interpolation_diff.gml</script>
     <script>scripts\ryb_to_rgb_red.gml</script>
     <script>scripts\ryb_to_rgb_green.gml</script>
     <script>scripts\ryb_to_rgb_blue.gml</script>
+    <script>scripts\cubic_interpolation_diff.gml</script>
     <script>scripts\make_colour_ryb.gml</script>
+    <script>scripts\ryb_to_rgb_red_diff.gml</script>
+    <script>scripts\ryb_to_rgb_green_diff.gml</script>
+    <script>scripts\ryb_to_rgb_blue_diff.gml</script>
     <script>scripts\tie_rgb_to_ryb.gml</script>
+    <script>scripts\rgb_to_ryb.gml</script>
     <script>scripts\script8.gml</script>
     <script>scripts\tie_hsv_to_rgb.gml</script>
     <script>scripts\choose_ryb_palette.gml</script>
+    <script>scripts\scr_lut_x.gml</script>
+    <script>scripts\scr_lut_y.gml</script>
+    <script>scripts\scr_lut_get.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_ryb_untextured.shader</shader>
     <shader type="GLSLES">shaders\shd_ryb_textured.shader</shader>
     <shader type="GLSLES">shaders\shd_ryb_output.shader</shader>
+    <shader type="GLSLES">shaders\shd_lut_textured.shader</shader>
+    <shader type="GLSLES">shaders\shd_lut_untextured.shader</shader>
   </shaders>
   <objects name="objects">
     <object>objects\output_obj</object>
@@ -39,6 +48,7 @@
     <object>objects\hsv_h_obj</object>
     <object>objects\hsv_s_obj</object>
     <object>objects\hsv_v_obj</object>
+    <object>objects\obj_lut</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\main_rm</room>

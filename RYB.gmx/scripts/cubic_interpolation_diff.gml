@@ -1,8 +1,7 @@
 ///cubic_interpolation_diff( t, a, b )
-// arg0 = t
-// arg1 = a
-// arg2 = b
-var t = argument0;
-var a = argument1;
-var b = argument2;
-return 6 * t * ( 1 - t ) * ( b - a );
+
+var _t = argument0;
+var _a = argument1;
+var _b = argument2;
+
+return 6 * _t * ( 1 - _t ) * ( _b - _a );

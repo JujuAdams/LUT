@@ -77,13 +77,13 @@ if ( grabbed ) {
         
         output_obj.colour = make_colour_ryb( ryb_r_obj.value * 255, ryb_y_obj.value * 255, ryb_b_obj.value * 255 );
         
-        rgb_r_obj.value = c_magic_rgb_r / 255;
-        rgb_g_obj.value = c_magic_rgb_g / 255;
-        rgb_b_obj.value = c_magic_rgb_b / 255;
+        rgb_r_obj.value = colour_get_red(   output_obj.colour ) / 255;
+        rgb_g_obj.value = colour_get_green( output_obj.colour ) / 255;
+        rgb_b_obj.value = colour_get_blue(  output_obj.colour ) / 255;
         
-        hsv_h_obj.value =        color_get_hue( output_obj.colour ) / 255;
+        hsv_h_obj.value = color_get_hue(        output_obj.colour ) / 255;
         hsv_s_obj.value = color_get_saturation( output_obj.colour ) / 255;
-        hsv_v_obj.value =      color_get_value( output_obj.colour ) / 255;
+        hsv_v_obj.value = color_get_value(      output_obj.colour ) / 255;
         
     } else if ( type == 1 ) {
     

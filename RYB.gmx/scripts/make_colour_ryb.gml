@@ -1,17 +1,9 @@
-// arg0 = red
-// arg1 = yellow
-// arg2 = blue
+///make_colour_ryb( red, yellow, blue )
 
-globalvar c_magic_rgb_r, c_magic_rgb_g, c_magic_rgb_b, c_magic_rgb;
+var _r = argument0 / 255;
+var _y = argument1 / 255;
+var _b = argument2 / 255;
 
-var red    = argument0 / 255;
-var yellow = argument1 / 255;
-var blue   = argument2 / 255;
-
-c_magic_rgb_r =   ryb_to_rgb_red( red, yellow, blue );
-c_magic_rgb_g = ryb_to_rgb_green( red, yellow, blue );
-c_magic_rgb_b =  ryb_to_rgb_blue( red, yellow, blue );
-
-c_magic_rgb = make_color_rgb( c_magic_rgb_r, c_magic_rgb_g, c_magic_rgb_b );
-
-return c_magic_rgb;
+return make_color_rgb( ryb_to_rgb_red(   _r, _y, _b ),
+                       ryb_to_rgb_green( _r, _y, _b ),
+                       ryb_to_rgb_blue(  _r, _y, _b ) );

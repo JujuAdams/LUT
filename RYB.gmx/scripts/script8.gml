@@ -1,3 +1,4 @@
+/*
 var rgb_r, rgb_g, rgb_b, ryb_r, ryb_y, ryb_b, colour, dist, temp_dist, red, yellow, blue, yellow_list, blue_list;
 
         rgb_r = rgb_r_obj.value * 255;
@@ -91,3 +92,4 @@ var rgb_r, rgb_g, rgb_b, ryb_r, ryb_y, ryb_b, colour, dist, temp_dist, red, yell
         hsv_h_obj.value =        color_get_hue( output_obj.colour ) / 255;
         hsv_s_obj.value = color_get_saturation( output_obj.colour ) / 255;
         hsv_v_obj.value =      color_get_value( output_obj.colour ) / 255;
+*/

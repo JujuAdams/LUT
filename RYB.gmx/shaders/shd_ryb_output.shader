@@ -13,8 +13,6 @@ void main() {
 }
 //######################_==_YOYO_SHADER_MARKER_==_######################@~varying vec2 v_vTexcoord;
 
-const float UNIT = 4095.0 / 255.0;
-
 uniform vec3 v_vWhite;
 uniform vec3 v_vYellow;
 uniform vec3 v_vRed;

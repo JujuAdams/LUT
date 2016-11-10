@@ -49,58 +49,7 @@ palette = 0;
 
 choose_ryb_palette( palette );
 
-srf_ryb = surface_create( 4096, 4096 );
-surface_set_target( srf_ryb );
-shader_set( shd_rgb_output );
-
-var _colour;
-_colour = c_magic_white;  shader_set_uniform_f( shader_get_uniform( shd_rgb_output, "v_vWhite"  ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
-_colour = c_magic_yellow; shader_set_uniform_f( shader_get_uniform( shd_rgb_output, "v_vYellow" ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
-_colour = c_magic_red;    shader_set_uniform_f( shader_get_uniform( shd_rgb_output, "v_vRed"    ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
-_colour = c_magic_orange; shader_set_uniform_f( shader_get_uniform( shd_rgb_output, "v_vOrange" ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
-
-_colour = c_magic_blue;   shader_set_uniform_f( shader_get_uniform( shd_rgb_output, "v_vBlue"   ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
-_colour = c_magic_green;  shader_set_uniform_f( shader_get_uniform( shd_rgb_output, "v_vGreen"  ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
-_colour = c_magic_purple; shader_set_uniform_f( shader_get_uniform( shd_rgb_output, "v_vPurple" ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
-_colour = c_magic_black;  shader_set_uniform_f( shader_get_uniform( shd_rgb_output, "v_vBlack"  ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
-
-draw_surface( srf_ryb, 0, 0 );
-
-shader_reset();
-surface_reset_target();
-
-//surface_save( srf_ryb, "test.png" );
-//url_open( "file:///" + game_save_id );
-
-tie_rgb_to_ryb();
-
-/*
-var red, yellow, blue, yellow_list, blue_list;
-
-for( red = 0; red &lt; resolution; red++ ) {
-    
-    yellow_list = ds_list_create();
-    ds_list_add( ryb_matrix_list, yellow_list );
-    
-    for( yellow = 0; yellow &lt; resolution; yellow++ ) {
-    
-        blue_list = ds_list_create();
-        ds_list_add( yellow_list, blue_list ); 
-        
-        for( blue = 0; blue &lt; resolution; blue++ ) {
-        
-            ds_list_add( blue_list, make_colour_ryb( red/resolution*255, yellow/resolution*255, blue/resolution*255 ) );
-        
-        }
-        
-    }
-    
-}
-
-tie_rgb_to_ryb();
-
-*/
-
+//tie_rgb_to_ryb();
 </string>
           </argument>
         </arguments>
@@ -130,14 +79,13 @@ tie_rgb_to_ryb();
         
         colour = make_colour_ryb( ryb_r_obj.value * 255, ryb_y_obj.value * 255, ryb_b_obj.value * 255 );
         
-        rgb_r_obj.value = c_magic_rgb_r / 255;
-        rgb_g_obj.value = c_magic_rgb_g / 255;
-        rgb_b_obj.value = c_magic_rgb_b / 255;
+        rgb_r_obj.value = colour_get_red(   colour ) / 255;
+        rgb_g_obj.value = colour_get_green( colour ) / 255;
+        rgb_b_obj.value = colour_get_blue(  colour ) / 255;
         
-        hsv_h_obj.value =        color_get_hue( output_obj.colour ) / 255;
-        hsv_s_obj.value = color_get_saturation( output_obj.colour ) / 255;
-        hsv_v_obj.value =      color_get_value( output_obj.colour ) / 255;
-        
+        hsv_h_obj.value = color_get_hue(        colour ) / 255;
+        hsv_s_obj.value = color_get_saturation( colour ) / 255;
+        hsv_v_obj.value = color_get_value(      colour ) / 255;
     
     }
     
@@ -151,14 +99,14 @@ if ( keyboard_check_pressed( vk_left ) ) or ( keyboard_check_pressed( vk_right )
     choose_ryb_palette( palette );
     
     output_obj.colour = make_colour_ryb( ryb_r_obj.value * 255, ryb_y_obj.value * 255, ryb_b_obj.value * 255 );
-        
-    rgb_r_obj.value = c_magic_rgb_r / 255;
-    rgb_g_obj.value = c_magic_rgb_g / 255;
-    rgb_b_obj.value = c_magic_rgb_b / 255;
-        
-    hsv_h_obj.value =        color_get_hue( output_obj.colour ) / 255;
-    hsv_s_obj.value = color_get_saturation( output_obj.colour ) / 255;
-    hsv_v_obj.value =      color_get_value( output_obj.colour ) / 255;
+    
+    rgb_r_obj.value = colour_get_red(   colour ) / 255;
+    rgb_g_obj.value = colour_get_green( colour ) / 255;
+    rgb_b_obj.value = colour_get_blue(  colour ) / 255;
+    
+    hsv_h_obj.value = color_get_hue(        colour ) / 255;
+    hsv_s_obj.value = color_get_saturation( colour ) / 255;
+    hsv_v_obj.value = color_get_value(      colour ) / 255;
     
 }
 </string>
@@ -185,6 +133,7 @@ if ( keyboard_check_pressed( vk_left ) ) or ( keyboard_check_pressed( vk_right )
             <kind>1</kind>
             <string>
 shader_set( shd_ryb_untextured );
+
 var _colour;
 _colour = c_magic_white;  shader_set_uniform_f( shader_get_uniform( shd_ryb_untextured, "v_vWhite"  ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
 _colour = c_magic_yellow; shader_set_uniform_f( shader_get_uniform( shd_ryb_untextured, "v_vYellow" ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
@@ -195,12 +144,16 @@ _colour = c_magic_blue;   shader_set_uniform_f( shader_get_uniform( shd_ryb_unte
 _colour = c_magic_green;  shader_set_uniform_f( shader_get_uniform( shd_ryb_untextured, "v_vGreen"  ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
 _colour = c_magic_purple; shader_set_uniform_f( shader_get_uniform( shd_ryb_untextured, "v_vPurple" ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
 _colour = c_magic_black;  shader_set_uniform_f( shader_get_uniform( shd_ryb_untextured, "v_vBlack"  ), colour_get_red( _colour )/255, colour_get_green( _colour )/255, colour_get_blue( _colour )/255 );
+
 draw_set_color( make_colour_rgb( ryb_r_obj.value * 255, ryb_y_obj.value * 255, ryb_b_obj.value * 255 ) );
 draw_rectangle( x, y, x + 64, y + 128, false );
 shader_reset();
 
-draw_set_color( colour );
+draw_set_colour( scr_lut_get( global.srf_lut, make_colour_rgb( ryb_r_obj.value*255, ryb_y_obj.value*255, ryb_b_obj.value*255 ) ) );
 draw_rectangle( x + 64, y, x + 128, y + 128, false );
+
+draw_set_color( colour );
+//draw_rectangle( x + 64, y, x + 128, y + 128, false );
 draw_set_color( c_black );
 draw_rectangle( x, y, x + 128, y + 128, true );
 
