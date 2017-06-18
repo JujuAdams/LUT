@@ -10,3 +10,8 @@ if ( _t < 1 ) {
 
 draw_sprite( spr_test, 0, 0, 0 );
 shader_reset();
+
+draw_set_colour( $2C2C2C );
+draw_circle( _t/3*room_width, room_height, 10, false );
+draw_line_width( room_width/3, room_height, room_width/3, room_height-20, 3 );
+draw_line_width( room_width*2/3, room_height, room_width*2/3, room_height-20, 3 );
